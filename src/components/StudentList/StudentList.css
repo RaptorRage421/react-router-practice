@@ -1,4 +1,5 @@
 .StudentList {
+
   margin: 2em;
 }
 
@@ -10,8 +11,22 @@
 
 .StudentList table th {
     border: 1px solid black;
+    background-color: white;
 }
 
 .StudentList table tbody {
+    margin: 1em;
     text-align: left;
+    padding: 1em;
+}
+
+tr:nth-of-type(even){
+    background-color: gray;
+}
+tr:nth-of-type(odd){
+    background-color: lightgray;
+}
+tr {
+    height: 2em;
+    padding: 1em;
 }

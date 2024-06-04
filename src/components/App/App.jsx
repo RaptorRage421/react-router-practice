@@ -1,18 +1,40 @@
+import { HashRouter as Router, Route } from 'react-router-dom/cjs/react-router-dom.min.js';
+
+
 import './App.css';
 import StudentForm from '../StudentForm/StudentForm.jsx';
 import StudentList from '../StudentList/StudentList.jsx';
+import About from '../About/About.jsx';
+import Header from '../Header/Header.jsx';
 
 
 function App() {
+
+
+
     return (
+        
         <div className="App">
-            <header>
-                <h1>GitHub Student List</h1>
-                {/* Nice spot for a nav, eh? */}
-            </header>
+            
+            
+            <Router>
+            <Route path='/home'>
+                <Header />
             <StudentForm />
+            </Route>
+            <Route path='/students'>
+            <Header />
             <StudentList />
+
+            </Route>
+            <Route path='/about'>
+            <Header />
+            <About />
+            </Route>
+            
+            </Router>
         </div>
+        
     );
 }
 

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import './StudentForm.css'
 
 
@@ -7,6 +8,7 @@ function StudentForm() {
     
     const [student, setStudent] = useState('');
 
+    const history = useHistory()
 
     // Called when the submit button is pressed
     const addStudent = (newStudent) => {
@@ -17,6 +19,7 @@ function StudentForm() {
             data: {github_name: newStudent}
         }).then((response) => {
             console.log(response);
+            history.push('/students')
         }).catch((err) => {
             console.log(err);
         });

@@ -6,6 +6,7 @@ import StudentForm from '../StudentForm/StudentForm.jsx';
 import StudentList from '../StudentList/StudentList.jsx';
 import About from '../About/About.jsx';
 import Header from '../Header/Header.jsx';
+import StudentListDetails from '../StudentList/StudentListDetails.jsx';
 
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
                 <Header />
             <StudentForm />
             </Route>
-            <Route path='/students'>
+            <Route exact path='/students'>
             <Header />
             <StudentList />
 
@@ -30,6 +31,10 @@ function App() {
             <Route path='/about'>
             <Header />
             <About />
+            </Route>
+            <Route path="/students/:id">
+            <Header />
+            <StudentListDetails />    
             </Route>
             
             </Router>

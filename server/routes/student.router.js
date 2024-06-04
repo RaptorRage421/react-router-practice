@@ -20,9 +20,10 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     console.log(req.body);
     const newStudent = req.body.github_name;
-    const sqlText = `INSERT INTO students (github_name) VALUES ($1)`;
+    const profilePicture = req.body.profile_image;
+    const sqlText = `INSERT INTO students (github_name, profile_image) VALUES ($1,$2)`;
 
-    pool.query(sqlText, [newStudent])
+    pool.query(sqlText, [newStudent, profilePicture])
         .then((result) => {
             res.sendStatus(201);
         })
@@ -31,5 +32,20 @@ router.post('/', (req, res) => {
             res.sendStatus(500);
         });
 });
+
+router.get('/:id', (req,res) => {
+    const studentId = req.params.id
+    const sqlText= `
+    SELECT * FROM "students"
+    WHERE "id" = $1;
+    `
+    pool.query(sqlText, [studentId])
+    .then(result => {
+        res.send(result.rows)
+    })
+    .catch(err => {
+        console.error('Error getting Specific Student', err)
+    })
+})
 
 module.exports = router;

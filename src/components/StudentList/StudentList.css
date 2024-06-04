@@ -21,12 +21,24 @@
 }
 
 tr:nth-of-type(even){
-    background-color: gray;
+    background-color: rgb(173, 138, 255);
 }
 tr:nth-of-type(odd){
-    background-color: lightgray;
+    background-color: rgb(168, 208, 255);
 }
 tr {
     height: 2em;
     padding: 1em;
+}
+
+td {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.list_links{
+    font-size: 20px;
+    font-weight: 900;
+    padding: .5em;
 }

@@ -26,3 +26,25 @@
   font-weight: 900;
   font-size: 30px;
 }
+
+.profile-pic {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+.list-image {
+  padding: .5em;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+.list_details{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.list_links {
+
+  color: white;
+}

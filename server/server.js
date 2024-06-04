@@ -7,6 +7,7 @@ const PORT = process.env.PORT || 5001;
 /** ---------- MIDDLEWARE ---------- **/
 app.use(bodyParser.json()); // needed for post/put requests
 app.use(express.static('build'));
+app.use(express.urlencoded({ extended: true}))
 
 /** ---------- EXPRESS ROUTES ---------- **/
 app.use('/api/students', students);

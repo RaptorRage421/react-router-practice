@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import './StudentList.css';
 
 
@@ -18,7 +19,7 @@ function StudentList() {
             url: '/api/students'
         }).then((response) => {
             setStudentList(response.data);
-        }).catch((err)=>{
+        }).catch((err) => {
             console.log(err);
         });
     };
@@ -35,7 +36,12 @@ function StudentList() {
                     {studentList.map(student => (
                         <tr key={student.id}>
                             <td>
-                                {student.github_name}
+                                <div className="list_links">
+                                    <Link to={`/students/${student.id}`} className="list_links">
+                                        {student.github_name}
+                                    </Link>
+                                </div>
+                                <img className="list-image" src={student.profile_image}></img>
                             </td>
                         </tr>
                     ))}
@@ -43,7 +49,7 @@ function StudentList() {
             </table>
         </div>
     );
-    
+
 }
 
 
